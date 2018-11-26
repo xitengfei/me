@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="keywords" content="网站建设,案例展示,开发案例,中小企业,解决方案,PHP,HTML5">
+<meta name="description" content="我们专注互联网科技服务，相信我们能为您做到更好.">
+<title>【青云博美】</title>
+<link href="vendor/swiper/swiper-3.3.1.min.css" type="text/css" rel="stylesheet">
+<link href="css/global.css" type="text/css" rel="stylesheet">
+<link href="fonts/font.css" type="text/css" rel="stylesheet">
+<link href="css/styles.css" type="text/css" rel="stylesheet">
+</head>
+<body class="contactus">
+    <div class="header-box">
+        <div class="header clearfix">
+            <div class="left">
+                <div class="logo left">
+                    <img src="image/logo.png">
+                    <span>青云博美</span>
+                </div>
+                <div class="logo-text left">
+                    <div>
+                        <p class="title">移动互联网创新技术服务专家</p>
+                        <p class="sub-title">DEVELOPMENT AND SERVICES</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <ul class="nav clearfix">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="aboutus.html">关于我们</a></li>
+                    <li><a href="advantage.html">优势强项</a></li>
+                    <li><a href="case.html">案例介绍</a></li>
+                    <li class="current"><a href="contactus.html">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div class="main-content">
+        <div class="location">
+            <div class="container">
+                <h2>项目开发热线：010-53393133</h2>
+                <div class="map-container">
+                    <div id="baidumap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of content -->
+
+
+    <footer>
+        <div class="container">
+            <div class="logo"><img src="image/logo.png" width="180" /></div>
+            <ul class="contact-info">
+                <li>联系地址：北京市昌平区百沙路200号，青年创业大厦，B座921/1101</li>
+                <li>联系邮箱：work@qingyunbomei.com</li>
+                <li>项目开发热线：010-53393133</li>
+            </ul>
+            <div class="copyright">
+                <p>Copyright © 2016 　 All Rights Reserved　版权所有·北京青云博美科技有限公司   京ICP备案12048116号-3</p>
+            </div>
+            <ul class="links">
+                <li>诚聘英才</li>
+                <li>商务合作</li>
+                <li>联系方式</li>
+            </ul>
+        </div>
+    </footer>
+
+
+<script src="vendor/jquery-1.11.0.min.js" type="text/javascript" ></script>
+<script src="js/scripts.js" type="text/javascript" ></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1UXSsQ3VlGQNGxkijwN5bbOuQP8yAmxp"></script>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("baidumap");
+    var point = new BMap.Point(116.298138,40.156006);
+    map.centerAndZoom(point, 16);
+    var marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);               // 将标注添加到地图中
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+</script>
+</body>
+</html>

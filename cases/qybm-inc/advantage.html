@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="keywords" content="网站建设,案例展示,开发案例,中小企业,解决方案,PHP,HTML5">
+<meta name="description" content="我们专注互联网科技服务，相信我们能为您做到更好.">
+<title>【青云博美】优势强项</title>
+<link href="vendor/swiper/swiper-3.3.1.min.css" type="text/css" rel="stylesheet">
+<link href="css/global.css" type="text/css" rel="stylesheet">
+<link href="fonts/font.css" type="text/css" rel="stylesheet">
+<link href="css/styles.css" type="text/css" rel="stylesheet">
+</head>
+<body class="advantage">
+    <div class="header-box">
+        <div class="header clearfix">
+            <div class="left">
+                <div class="logo left">
+                    <img src="image/logo.png">
+                    <span>青云博美</span>
+                </div>
+                <div class="logo-text left">
+                    <div>
+                        <p class="title">移动互联网创新技术服务专家</p>
+                        <p class="sub-title">DEVELOPMENT AND SERVICES</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <ul class="nav clearfix">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="aboutus.html">关于我们</a></li>
+                    <li class="current"><a href="advantage.html">优势强项</a></li>
+                    <li><a href="case.html">案例介绍</a></li>
+                    <li><a href="contactus.html">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div class="main-content">
+        <div class="section1">
+            <img src="image/advantage/advantage-1.jpg" width="100%" />
+        </div>
+        <div class="msection section2">
+            <img src="image/advantage/advantage-2.png" />
+        </div>
+        <div class="msection section3">
+            <img src="image/advantage/advantage-3.png" />
+        </div>
+        <div class="msection section4">
+            <img src="image/advantage/advantage-4.png" />
+        </div>
+        <div class="msection section5">
+            <img src="image/advantage/advantage-5.png" />
+        </div>
+        <div class="msection section6">
+            <div class="bg-top"></div>
+            <img src="image/advantage/advantage-6.png" />
+        </div>
+    </div>
+    <!-- end of content -->
+
+    <footer>
+        <div class="container">
+            <div class="logo"><img src="image/logo.png" width="180" /></div>
+            <ul class="contact-info">
+                <li>联系地址：北京市昌平区百沙路200号，青年创业大厦，B座921/1101</li>
+                <li>联系邮箱：work@qingyunbomei.com</li>
+                <li>项目开发热线：010-53393133</li>
+            </ul>
+            <div class="copyright">
+                <p>Copyright © 2016 　 All Rights Reserved　版权所有·北京青云博美科技有限公司   京ICP备案12048116号-3</p>
+            </div>
+            <ul class="links">
+                <li>诚聘英才</li>
+                <li>商务合作</li>
+                <li>联系方式</li>
+            </ul>
+        </div>
+    </footer>
+
+
+<script src="vendor/jquery-1.11.0.min.js" type="text/javascript" ></script>
+<script src="js/scripts.js" type="text/javascript" ></script>
+<script>
+//rotateCircle
+(function(){
+    function renderCircle(obj){
+        var $items = obj.find('.ringItem');
+        var pleft, ptop;
+        for(var i = 0, l = $items.length; i < l; i++) {
+            pleft = (50 - 45*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+            ptop = (50 + 45*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+            $items.eq(i).css({'left':pleft, 'top':ptop});
+        }
+    }
+    function init(){
+        $(".circle .ring").each(function(){
+            renderCircle($(this));
+        });
+    }
+    init();
+})();
+</script>
+</body>
+</html>

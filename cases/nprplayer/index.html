@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>NPR English</title>
+<link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css">
+<link rel="stylesheet" type="text/css" href="css/styles.min.css">
+<script src="vender/angular-1.5.7.min.js"></script>
+<script src="vender/angular-animate.js"></script>
+<script type="text/javascript" src="vender/jquery-1.12.4.min.js"></script>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+    <div id="wrap" ng-controller="PlayerController">
+        <header>
+            <div class="container">
+                <div class="left-button" ng-click="nav.open();"><i class="iconfont icon-menu"></i></div>
+<h1 class="app-name">NPR English</h1>
+<div class="right-button"><i class="iconfont icon-share"></i></div>
+            </div>
+        </header>
+
+        <div class="content" id="main">
+            <div class="listView">
+    <ul class="music-list">
+        <li ng-repeat="program in programs" ng-click="player.play(program)">
+            <span class="number">{{ $index + 1 }}</span>
+            <span class="music-name">{{ program.title.$text }}</span>
+            <a href="{{ program.link[0].$text }}" target="_blank">text</a>
+        </li>
+    </ul>
+</div>
+        </div>
+
+        <nav left-nav id="menu" class="menu slideout-menu slideout-menu-left" ng-hide="nav.collapse">
+    <a href="javascript:void(0)" class="close-btn" ng-click="nav.close();">×</a>
+    <a href="/">
+        <div class="menu-header">
+            <span class="menu-header-title">NPR English</span>
+        </div>
+    </a>
+
+    <section class="menu-section">
+        <h3 class="menu-section-title">Channels</h3>
+        <ul class="menu-section-list">
+            <li ng-repeat="channel in channels">
+                <a href="#" ng-click="updateChannel(channel.id)">{{channel.title}}</a>
+            </li>
+        </ul>
+    </section>
+
+    <section class="menu-section">
+        <h3 class="menu-section-title">My</h3>
+        <ul class="menu-section-list">
+            <li><a href="#">Favorate</a></li>
+            <li><a href="#">Star</a></li>
+        </ul>
+    </section>
+</nav>  
+
+        <footer>
+            <div class="container">
+                <div class="player">
+    <div class="music-current">
+        <p class="music-name">{{ player.current.title.$text }}</p>
+        <!-- <p class="music-art">NPR News</p> -->
+    </div>
+    <div class="music-control">
+        <div class="buttons">
+            <button class="loop-mode"><i class="iconfont icon-xunhuanbofang"></i></button>
+            <button class="prev" ng-click="player.prev();"><i class="iconfont icon-nextpage"></i></button>
+            <button class="play" ng-click="player.play();" ng-show="!player.playing"><i class="iconfont icon-play"></i></button>
+            <button class="stop" ng-click="player.stop();" ng-show="player.playing"><i class="iconfont icon-pause"></i></button>
+            <button class="next" ng-click="player.next();"><i class="iconfont icon-nextpage"></i></button>
+            <button class="random-mode"><i class="iconfont icon-suijibofang"></i></button>
+        </div>
+        <div class="progress">
+            <span class="time-now">{{ player.currentTime() | convertS }}</span>
+            <div class="progress-bar">
+                <input type="range" ng-model="player.progress_percent" value="0" />
+            </div>
+            <span class="time-end">{{ player.duration() | convertS }}</span>
+        </div>
+    </div>
+</div>
+            </div>
+        </footer>
+    </div>
+    <!-- end of wrap -->
+    <script src="vender/hammer.min.js"></script>
+    <script type="text/javascript" src="js/scripts.min.js"></script>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>

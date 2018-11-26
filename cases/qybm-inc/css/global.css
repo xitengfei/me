@@ -1,0 +1,145 @@
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;}
+body{background:#fff;color:#333;font-size:12px; margin-top:0;font-family:"微软雅黑","宋体","Arial Narrow";}
+ul,ol{list-style-type:none;}
+select,input,img,select{vertical-align:middle;}
+a{text-decoration:none;}
+a:visited{color:#000;}
+a:hover,a:active,a:focus{color:#c00;text-decoration:underline;}
+.clearfix:after{content:" ";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{ zoom: 1; }
+.left{float:left;}
+.right{float:right;}
+
+
+/*section header*/
+.section-header h2{
+  	width: 195px;
+    margin: 0 auto; padding: 35px 0;
+    font-size: 0;
+}
+.section-header h2 .left{
+	float: none;
+	display: inline-block;
+    vertical-align: top;
+    font-size: 70px;
+    line-height: 70px;
+    font-weight: normal;
+    color: #c04a37;
+    width: 45px;
+}
+.section-header h2 .right{
+	float: none;
+	display: inline-block;
+    width: 140px;
+    font-size: 14px;
+}
+.section-header h2 .right div{
+	display:block;
+	width: 100%;
+}
+.section-header h2 .right p{
+	font-weight: normal;
+	line-height: 25px;
+}
+.section-header h2 .right p:first-child{
+	font-family: 'BigYoung6a146f36716d9d';
+    line-height: 50px;
+    font-size: 34px;font-weight: bold;
+}
+.section-header h2 .right p:nth-child(2){
+    font-size: 18px;
+    line-height: 18px;
+    color: #999;
+}
+.section-header .right p:nth-child(3){
+  	color: #999;
+}
+
+/* circle style */
+.circle,.ring {
+  height: 500px;
+  position: relative;
+  width: 500px;
+  margin-top: 150px;
+}
+
+.circle{
+  margin: 0 auto;
+}
+.circle .ring{
+  border-radius: 50%;
+  opacity: 0;
+
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+
+  -webkit-transform: scale(0.1) rotate(-270deg);
+  -moz-transform: scale(0.1) rotate(-270deg);
+  -transform: scale(0.1) rotate(-270deg);
+
+  -webkit-transition: all 0.6s ease-out;
+  -moz-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out;
+}
+
+.circle.open .ring {
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(0);
+  -moz-transform: scale(1) rotate(0);
+  -transform: scale(1) rotate(0);
+}
+
+.circle .ringItem, .circle .center{
+	border-radius: 50%;
+    width: 130px; height: 130px; line-height: 130px;text-align: center;
+    margin-left: -65px;
+    margin-top: -65px;
+    position: absolute;
+    background: #fff;
+}
+.circle .ringItem img, .circle .center img{
+	width:65px;
+}
+.circle .center {
+  	left: 0;top: 0;right: 0;bottom: 0;margin: auto; /*居中*/
+  	width: 144px;
+    height: 144px;
+    line-height: 144px;
+    background: #e93a28;
+  	-webkit-transition: all 0.4s ease-out;
+  	-moz-transition: all 0.4s ease-out;
+  	transition: all 0.4s ease-out;
+}
+
+
+
+.xcounter{
+    width: 140px;height: 140px;position: relative; margin:0 auto;
+}
+.xcounter .ro{
+    width: 100%;height:100%;position: absolute;top: 0;left: 0;
+    border-radius: 50%;
+}
+.xcounter .pie1{
+    clip:rect(0px,140px,140px, 70px);-o-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);
+    background-color:#333;
+    z-index: 1;
+}
+.xcounter .pie2{
+    clip:rect(0px,70px,200px,0px);-o-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);
+    background-color:#333;
+    z-index: 1;
+}
+.xcounter .bg{
+    background: red;
+}
+.xcounter .number{
+    width: 128px;
+    height: 128px;
+    margin: 6px;
+    line-height: 120px;
+    font-size: 40px;
+    background: #fff;
+    z-index: 1;
+}

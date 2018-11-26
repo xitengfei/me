@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="keywords" content="网站建设,案例展示,开发案例,中小企业,解决方案,PHP,HTML5">
+<meta name="description" content="我们专注互联网科技服务，相信我们能为您做到更好.">
+<title>【青云博美】</title>
+<link href="vendor/swiper/swiper-3.3.1.min.css" type="text/css" rel="stylesheet">
+<link href="css/global.css" type="text/css" rel="stylesheet">
+<link href="fonts/font.css" type="text/css" rel="stylesheet">
+<link href="css/styles.css" type="text/css" rel="stylesheet">
+</head>
+<body class="case">
+    <div class="header-box">
+        <div class="header clearfix">
+            <div class="left">
+                <div class="logo left">
+                    <img src="image/logo.png">
+                    <span>青云博美</span>
+                </div>
+                <div class="logo-text left">
+                    <div>
+                        <p class="title">移动互联网创新技术服务专家</p>
+                        <p class="sub-title">DEVELOPMENT AND SERVICES</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <ul class="nav clearfix">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="aboutus.html">关于我们</a></li>
+                    <li><a href="advantage.html">优势强项</a></li>
+                    <li class="current"><a href="case.html">案例介绍</a></li>
+                    <li><a href="contactus.html">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div class="main-content">
+        <div class="container" style="padding: 25px 0 15px;">
+            <div class="section-header">
+                <h2>
+                    <div class="right" style="width: 240px;text-align: center;">
+                        <p>大牌案例介绍</p>
+                        <p style="font-size:22px;color: #333;">SUCCESSFULL CASE</p>
+                    </div>
+                </h2>
+            </div>
+        </div>
+
+        <div class="cases">
+            <div class="content">
+                <ul class="case-list">
+                    <li><img src="image/apps/爱助家.png" alt="case"/><label>爱助家</label></li>
+                    <li><img src="image/apps/比邻.png" alt="case"/><label>比邻</label></li>
+                    <li><img src="image/apps/嘀嗒拼车.png" alt="case"/><label>嘀嗒拼车</label></li>
+                    <li><img src="image/apps/飞凡.png" alt="case"/><label>飞凡</label></li>
+                    <li class="active"><img src="image/apps/极致驾服.png" alt="case"/><label>极致驾服</label></li>
+                    <li><img src="image/apps/酷家乐装修.png" alt="case"/><label>酷家乐装修</label></li>
+                    <li><img src="image/apps/懒人家政.png" alt="case"/><label>懒人家政</label></li>
+                    <li><img src="image/apps/喵播直播.png" alt="case"/><label>喵播直播</label></li>
+                    <li><img src="image/apps/圈克直播.png" alt="case"/><label>圈克直播</label></li>
+                    <li><img src="image/apps/小猪短租.png" alt="case"/><label>小猪短租</label></li>
+                    <li><img src="image/apps/一米鲜.png" alt="case"/><label>一米鲜</label></li>
+                </ul>
+
+                <div class="screens">
+                    <div class="screen-left">
+                        <div class="screen-content"><img src="" width="100%" /></div>
+                    </div>
+                    <div class="screen-main">
+                        <div class="screen-content"><img src="" width="100%" /></div>
+                    </div>
+                    <div class="screen-right">
+                        <div class="screen-content"><img src="" width="100%" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of content -->
+
+    <footer>
+        <div class="container">
+            <div class="logo"><img src="image/logo.png" width="180" /></div>
+            <ul class="contact-info">
+                <li>联系地址：北京市昌平区百沙路200号，青年创业大厦，B座921/1101</li>
+                <li>联系邮箱：work@qingyunbomei.com</li>
+                <li>项目开发热线：010-53393133</li>
+            </ul>
+            <div class="copyright">
+                <p>Copyright © 2016 　 All Rights Reserved　版权所有·北京青云博美科技有限公司   京ICP备案12048116号-3</p>
+            </div>
+            <ul class="links">
+                <li>诚聘英才</li>
+                <li>商务合作</li>
+                <li>联系方式</li>
+            </ul>
+        </div>
+    </footer>
+
+
+<script src="vendor/jquery-1.11.0.min.js" type="text/javascript" ></script>
+<script src="js/scripts.js" type="text/javascript" ></script>
+<script type="text/javascript">
+$(function(){
+    function showScreenshots(label){
+        var base = 'image/apps/screenshots/'+label+'/';
+        $(".screen-left img").attr('src', base + 'left.jpeg');
+        $(".screen-main img").attr('src', base + 'main.jpeg');
+        $(".screen-right img").attr('src', base + 'right.jpeg');
+    }
+
+    $(".case-list li").mouseover(function(){
+        $(this).addClass("active");
+        $(this).siblings().removeClass("active");
+        var label = $(this).children("label").text();
+        showScreenshots(label);
+    });
+
+    var label = $(".case-list li.active").children("label").text();
+    showScreenshots(label);
+
+});
+</script>
+</body>
+</html>

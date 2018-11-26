@@ -1,0 +1,36 @@
+
+
+var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+
+$(".banner-content #screen1").animateCss('bounceInDown');
+
+setTimeout(function(){
+    $(".banner-content #screen1").addClass('animated bounceOut');
+}, 1500);
+
+
+    function animation2(){
+        //var dom = $("#screen2 ul li").eq(0);
+        //dom.animateCss('bounceInDown');
+        // $("#screen2 ul li").each(function(){
+        //     $(this).animat();
+        // });
+
+        var doms = $("#screen2 ul li");
+        var len = doms.length;
+        var i = 0;
+        var test = function(){
+            console.log(i);
+            doms.eq(i).addClass('animated bounceInDown').one(animationEnd, function() {
+                i++;
+                if(i < length){
+                    console.log(i);
+                    test();
+                }else{
+                    return false;
+                }    
+            });
+        } 
+
+        test();
+    }
