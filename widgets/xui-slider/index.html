@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>scroll</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+		
+var imageNumber = 3;		
+var activeNum = 0;
+var _ringTime = 1000;
+var timtOutId;
+
+function autoRing(){
+	if(activeNum>=imageNumber){
+		$("#scroller ul").css({'margin-left':'0'});
+		activeNum=0;//激活号码大于图片数，激活号码置成0
+	}
+	
+    timtOutId = setTimeout(function(){
+		activeNum=activeNum+1;//激活号码加1
+		ringImg('left');
+	},_ringTime);
+}
+
+
+//图片轮换
+function ringImg(direct){	  
+	//动画执行完以后再触发autoRing
+	if(direct == 'left'){
+		$("#scroller ul").animate({'margin-left':((-activeNum)*800)},_ringTime,function(){clearTimeout(timtOutId);autoRing('left')});
+	}else if(direct == 'right'){
+		$("#scroller ul").animate({'margin-left':((activeNum)*800)},_ringTime,function(){clearTimeout(timtOutId);autoRing('right')});
+	}
+}
+
+
+function RingLeft(){
+	clearTimeout(timtOutId);
+	ringImg('right');
+}
+
+$(function(){
+	autoRing();
+});
+
+
+</script>
+<style>
+#scroller{width:772px;margin:0 auto;overflow:hidden;border:1px solid red;}
+ul{width:3200px;overflow:hidden;list-style:none;margin-left:0px;}
+ul li{width:772px;float:left;}
+</style>
+</head>
+
+<body>
+	<div id="scroller">
+		<ul>
+			<li><img src="img/42766101.jpg" /></li>
+			<li><img src="img/42766145.jpg" /></li>
+			<li><img src="img/42766146.jpg" /></li>
+			<li><img src="img/42766101.jpg" /></li>
+		</ul>
+	</div>
+</body>
+
+</html>

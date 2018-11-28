@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>XUI Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha256-gvEnj2axkqIj4wbYhPjbWV7zttgpzBVEgHub9AAZQD4=" crossorigin="anonymous" />
+    <style>
+        .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}.clearfix{zoom:1}
+        .xui-slider-container{
+            width: 600px;
+            margin: 0 auto;
+        }
+        .xui-slider{
+            background: #fff;
+            position: relative;
+            border: 3px solid red;
+            overflow: hidden;
+        }
+        .xui-slider-wrap{
+            position: relative;
+            left:0;
+        }
+        .xui-slider-item{
+            float:left;
+        }
+        .xui-slider-item img{
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple XUI Slider</h1>
+    <div class="xui-slider-container">
+        <div class="xui-slider clearfix">
+            <ul class="xui-slider-wrap">
+                <li class="xui-slider-item"><img src="img/1 (1).jpg" alt="xui slider example" /></li>
+                <li class="xui-slider-item"><img src="img/1 (2).jpg" alt="xui slider example" /></li>
+                <li class="xui-slider-item"><img src="img/1 (4).jpg" alt="xui slider example" /></li>
+                <li class="xui-slider-item"><img src="img/1 (6).jpg" alt="xui slider example" /></li>
+                <li class="xui-slider-item"><img src="img/1 (7).jpg" alt="xui slider example" /></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+        ((function(){
+            var xuiSlider = function(){
+                this.current_index = 0;
+                this.slide_num = 0;
+                this.interval = 2000;
+                this.slide_speed = 500;
+                
+                this.$slide = $(".xui-slider-container");
+                this.$wrap = this.$slide.find(".xui-slider-wrap");
+                this.slide_width = this.$slide.width();
+            
+                this.$slide.find(".xui-slider").width(this.slide_width+'px');
+                this.$slide.find(".xui-slider-item").width(this.slide_width+'px');
+                
+                this.init();
+
+                setInterval(function(){
+                    this.next();
+                }.bind(this), this.interval);
+            };
+            xuiSlider.prototype.init = function(){
+                var $first = this.$slide.find(".xui-slider-item").first().clone();
+                var $last = this.$slide.find(".xui-slider-item").last().clone();
+                this.$wrap.append($first);
+                this.$wrap.prepend($last);
+
+                this.slide_num = this.$slide.find(".xui-slider-item").length;
+                this.$wrap.width(this.slide_width * this.slide_num + 'px');
+                
+                console.log(":) xuiSlider inited.");   
+            };
+
+            xuiSlider.prototype.swap = function(index){
+                this.current_index = index;
+                var offset_left = -this.current_index * this.slide_width;
+                this.$wrap.css('left', offset_left + 'px');
+            };
+
+            xuiSlider.prototype.next = function(){
+                if (this.current_index >= (this.slide_num-1)){
+                    this.swap(1);
+                }
+                this.current_index ++;
+                console.log(this.current_index);
+                var offset_left = -this.current_index * this.slide_width;
+
+                this.$wrap.animate({left: offset_left + 'px'}, this.slide_speed, "linear");
+            }
+            
+            var myslide = new xuiSlider();
+        })(jQuery))
+    </script>
+</body>
+</html>

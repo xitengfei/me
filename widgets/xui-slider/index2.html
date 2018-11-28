@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>scroll</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+		
+var scrollerNumber;	
+var scrollerWidth;	
+var activeNum = 0;
+var _ringTime = 1500;
+var intervalId;
+
+function next(){
+	$("#scrollerList li:first-child").animate({
+		marginLeft:-scrollerWidth+'px'
+	},1000,function(){
+		var temp=$(this).clone();
+		$(this).remove();
+		temp.css({marginLeft:"0"});
+		$("#scrollerList").append(temp);
+	});
+}
+function prev(){
+	var temp = $("#scrollerList li:last-child").clone().css({marginLeft:-scrollerWidth+'px'});
+	$("#scrollerList li:last-child").remove();
+	$("#scrollerList").prepend(temp);
+	$("#scrollerList li:first-child").animate({marginLeft:"0"},1000);
+}
+//自动播放
+function autoRun(){
+	intervalId=window.setInterval(next,_ringTime);
+}
+
+function init(){
+	var scrollerArr=$("#scrollerList li");
+	scrollerNumber = scrollerArr.length;
+	scrollerWidth = scrollerArr.eq(1).width();
+	//设定ul宽度
+	$("#scrollerList").css("width",scrollerNumber*scrollerWidth+'px');
+	//alert(scrollerNumber);
+	$("#scroller").mouseover(function(){
+		clearInterval(intervalId); //停止
+	}).mouseout(function(){
+		autoRun(); //开始
+	});
+	autoRun();
+	
+}
+
+
+$(function(){
+	init();
+});
+
+
+</script>
+<style>
+#scroller{width:772px;height:434px;margin:0 auto;border:1px solid red;overflow:hidden;position:relative;}
+ul{width:3200px;list-style:none;margin:0;padding:0;}
+ul li{width:772px;float:left;}
+#scroller .btn{
+	display:block;width:50px;height:50px;line-height:50px;
+	position:absolute;top:40%;z-index:1;
+	font-size:18px;text-align:center;
+	border-radius:25px;background:#fff;
+	cursor:pointer;
+}
+#scroller .prev{left:0;}
+#scroller .next{right:0;}
+</style>
+</head>
+
+<body>
+	<div id="scroller">
+		<ul id="scrollerList">
+			<li><img src="img/42766101.jpg" /></li>
+			<li><img src="img/42766145.jpg" /></li>
+			<li><img src="img/42766146.jpg" /></li>
+			<li><img src="img/42766159.jpg" /></li>
+		</ul>
+		<span onclick="prev()" class="btn prev"><</span>
+		<span onclick="next()" class="btn next">></span>
+	</div>
+</body>
+
+</html>
