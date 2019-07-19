@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .point{
+        width: 6px;
+        height: 6px;
+        background: red;
+        border-radius: 50%;
+        position: absolute;
+    }
+    .origin{
+        top: 300px;
+        left: 300px;
+    }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="origin point"></div>
+    </div>
+
+<script>
+    var n = 60;
+
+    const getPos = function(r = 10, degree){
+        let x, y;
+        const radian = 2 * Math.PI / 360 * degree;
+        x = Math.sin(radian) * r;
+        y = Math.cos(radian) * r;
+        x = Math.round(x * 1000) / 1000; // 四舍五入保留三位小数
+        y = Math.round(y * 1000) / 1000; 
+        return {x, y};
+    }
+
+
+    const genPoints = function(){
+        const degree = 360 / n;
+        const origin = {x: 300, y: 300};
+
+        for(let i = 0; i < n; i++){
+            const pos = getPos(100, i*degree); 
+            const div = document.createElement('div');
+            div.className = 'point';
+            div.style.left = origin.x + pos.x + 'px';
+            div.style.top = origin.y + pos.y + 'px';
+            console.log(pos);
+            document.getElementById('root').appendChild(div);
+        }
+    }
+
+    genPoints();
+</script>
+</body>
+</html>
